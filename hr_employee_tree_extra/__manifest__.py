@@ -1,6 +1,6 @@
 {
 	'name': 'HR Employee Tree Extra',
-	'Version': '18.0.1.0.0',
+	'version': '18.0.1.0.0',
 	'summary': 'Adds extra fields to the Employee tree view.',
 	'description': 'Inherits the standard hr.employee tree view and adds mobile_phone, birthday, identification_id fields to the list view.',
 	'author': 'Your Company',
