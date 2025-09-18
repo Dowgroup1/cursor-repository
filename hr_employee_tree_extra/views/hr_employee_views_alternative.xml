@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<!-- Alternative approach: Inherit from the base employee view -->
+	<record id="hr_employee_tree_extra_inherit_alt" model="ir.ui.view">
+		<field name="name">hr.employee.tree.extra.fields.alternative</field>
+		<field name="model">hr.employee</field>
+		<field name="inherit_id" ref="hr.view_employee_form"/>
+		<field name="arch" type="xml">
+			<!-- This approach modifies the form view instead of tree view -->
+			<xpath expr="//field[@name='work_email']" position="after">
+				<field name="mobile_phone"/>
+				<field name="birthday"/>
+				<field name="identification_id"/>
+			</xpath>
+		</field>
+	</record>
+	
+	<!-- Another alternative: Create a new tree view -->
+	<record id="hr_employee_tree_extra_new" model="ir.ui.view">
+		<field name="name">hr.employee.tree.extra.new</field>
+		<field name="model">hr.employee</field>
+		<field name="arch" type="xml">
+			<tree string="Employees" create="true" edit="true" delete="true">
+				<field name="name"/>
+				<field name="work_email"/>
+				<field name="mobile_phone"/>
+				<field name="birthday"/>
+				<field name="identification_id"/>
+				<field name="department_id"/>
+				<field name="job_id"/>
+			</tree>
+		</field>
+	</record>
+</odoo>
