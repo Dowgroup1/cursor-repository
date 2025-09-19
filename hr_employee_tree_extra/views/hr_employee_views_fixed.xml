@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<!-- Solution 1: Try inheriting from the list view with a more specific XPath -->
+	<record id="hr_employee_tree_extra_inherit_v1" model="ir.ui.view">
+		<field name="name">hr.employee.tree.extra.fields.v1</field>
+		<field name="model">hr.employee</field>
+		<field name="inherit_id" ref="hr.view_employee_tree"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='name']" position="after">
+				<field name="mobile_phone"/>
+				<field name="birthday"/>
+				<field name="identification_id"/>
+			</xpath>
+		</field>
+	</record>
+
+	<!-- Solution 2: If the above doesn't work, try inheriting from the kanban view -->
+	<record id="hr_employee_tree_extra_inherit_v2" model="ir.ui.view">
+		<field name="name">hr.employee.tree.extra.fields.v2</field>
+		<field name="model">hr.employee</field>
+		<field name="inherit_id" ref="hr.view_employee_kanban"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='name']" position="after">
+				<field name="mobile_phone"/>
+				<field name="birthday"/>
+				<field name="identification_id"/>
+			</xpath>
+		</field>
+	</record>
+
+	<!-- Solution 3: Create a completely new tree view -->
+	<record id="hr_employee_tree_extra_new" model="ir.ui.view">
+		<field name="name">hr.employee.tree.extra.new</field>
+		<field name="model">hr.employee</field>
+		<field name="arch" type="xml">
+			<tree string="Employees" create="true" edit="true" delete="true">
+				<field name="name"/>
+				<field name="work_email"/>
+				<field name="mobile_phone"/>
+				<field name="birthday"/>
+				<field name="identification_id"/>
+				<field name="department_id"/>
+				<field name="job_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<!-- Solution 4: Try to inherit from the base employee view -->
+	<record id="hr_employee_tree_extra_inherit_v3" model="ir.ui.view">
+		<field name="name">hr.employee.tree.extra.fields.v3</field>
+		<field name="model">hr.employee</field>
+		<field name="inherit_id" ref="hr.view_employee_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='work_email']" position="after">
+				<field name="mobile_phone"/>
+				<field name="birthday"/>
+				<field name="identification_id"/>
+			</xpath>
+		</field>
+	</record>
+</odoo>
