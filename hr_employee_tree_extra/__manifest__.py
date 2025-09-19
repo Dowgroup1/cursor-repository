@@ -10,6 +10,7 @@
 	'depends': ['hr'],
 	'data': [
 		'views/hr_employee_views.xml',
+		'views/hr_employee_views_fixed.xml',
 	],
 	'installable': True,
 	'application': False,
